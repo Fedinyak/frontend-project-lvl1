@@ -3,10 +3,12 @@ name: Node CI
 on: push
 
 jobs:
-  lint:
+  build:
      runs-on: ubuntu-latest
     
      steps:
+     - name: checkout repo
+       uses: actions/checkout@v2
      - name: npm install
        run: make install
 
