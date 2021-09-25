@@ -8,12 +8,9 @@ jobs:
     
      steps:
      - name: npm install
+       run: make install
 
-     run: |
-          make install
-
-     - name: run-lint
-       run: |
-         make lint 
+     - name: run lint
+       run: make lint 
       
 
