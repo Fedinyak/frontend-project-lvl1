@@ -11,7 +11,7 @@ const getUserAnswerBrainCalc = (rules) => {
 
   for (let i = 0; i < 3; i += 1) {
     const maxRandomNumber = 100;
-    const maxRandomOperation = 3;
+    const maxRandomOperation = 4;
 
     const firstNum = getRandomNumber(maxRandomNumber);
     const secondNum = getRandomNumber(maxRandomNumber);
