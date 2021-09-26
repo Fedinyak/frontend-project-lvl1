@@ -1,4 +1,4 @@
 #!/usr/bin/env node
 import getUserAnswerBrainEven from '../src/getUserAnswerBrainEven.js';
 
-getUserAnswerBrainEven();
+getUserAnswerBrainEven('Answer "yes" if the number is even, otherwise answer "no".');
