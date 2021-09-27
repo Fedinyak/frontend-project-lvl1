@@ -12,3 +12,6 @@
 
 ## Brain GCD gameplay
 <a href="https://asciinema.org/a/KwlG3dACBuDzHIbd0CbxbXALX" target="_blank"><img src="https://asciinema.org/a/KwlG3dACBuDzHIbd0CbxbXALX.svg" /></a>
+
+## Brain Progression gameplay
+<a href="https://asciinema.org/a/5zQcucy6WyMsU388rTek6PGwB" target="_blank"><img src="https://asciinema.org/a/5zQcucy6WyMsU388rTek6PGwB.svg" /></a>
