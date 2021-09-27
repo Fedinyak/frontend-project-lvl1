@@ -15,3 +15,6 @@
 
 ## Brain Progression gameplay
 <a href="https://asciinema.org/a/5zQcucy6WyMsU388rTek6PGwB" target="_blank"><img src="https://asciinema.org/a/5zQcucy6WyMsU388rTek6PGwB.svg" /></a>
+
+## Brain Prime gameplay
+<a href="https://asciinema.org/a/3Hk0OR3AQ6wsAIBXd99pXp2KS" target="_blank"><img src="https://asciinema.org/a/3Hk0OR3AQ6wsAIBXd99pXp2KS.svg" /></a>
