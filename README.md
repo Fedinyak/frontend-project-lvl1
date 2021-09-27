@@ -9,3 +9,6 @@
 
 ## Brain Calc gameplay
 <a href="https://asciinema.org/a/tnNCgtzQ8fVwgU1qVrXRioPkZ" target="_blank"><img src="https://asciinema.org/a/tnNCgtzQ8fVwgU1qVrXRioPkZ.svg" /></a>
+
+## Brain GCD gameplay
+<a href="https://asciinema.org/a/KwlG3dACBuDzHIbd0CbxbXALX" target="_blank"><img src="https://asciinema.org/a/KwlG3dACBuDzHIbd0CbxbXALX.svg" /></a>
