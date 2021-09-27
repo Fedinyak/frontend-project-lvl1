@@ -14,12 +14,11 @@ const getUserAnswerBrainGcd = (rules) => {
     const maxStartNumber = 10;
     const maxGapProgression = 10;
     const maxLengthProgression = 6;
-    const maxHiddenNumber = 9;
 
     const startNumber = getRandomNumber(maxStartNumber);
     const gapProgression = getRandomNumber(maxGapProgression);
     const lengthProgression = getRandomNumber(maxLengthProgression) + 5;
-    const hiddenNumber = getRandomNumber(maxHiddenNumber);
+    const hiddenNumber = getRandomNumber(lengthProgression);
 
     const progression = getProgression(startNumber, gapProgression, lengthProgression);
 
