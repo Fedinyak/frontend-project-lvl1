@@ -1,4 +1,5 @@
 import getRandomNumber from './getRandomNumber.js';
+import generateNumbers from './generateNumbers.js';
 import gameEngine from './index.js';
 
 const rules = 'What number is missing in the progression?';
@@ -7,14 +8,6 @@ const roundOfGames = 3;
 const maxStartNumber = 10;
 const maxGapProgression = 10;
 const maxLengthProgression = 6;
-
-const generateNumbers = (num, rounds) => {
-  const numbers = [];
-  for (let i = 0; i < rounds; i += 1) {
-    numbers.push(getRandomNumber(num));
-  }
-  return numbers;
-};
 
 const generateLengthProgression = (num, rounds) => {
   const numbers = [];

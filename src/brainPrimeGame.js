@@ -1,17 +1,9 @@
-import getRandomNumber from './getRandomNumber.js';
+import generateNumbers from './generateNumbers.js';
 import gameEngine from './index.js';
 
 const rules = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 const roundOfGames = 3;
 const maxRandomNumber = 1000;
-
-const generateNumbers = (num, rounds) => {
-  const numbers = [];
-  for (let i = 0; i < rounds; i += 1) {
-    numbers.push(getRandomNumber(num));
-  }
-  return numbers;
-};
 
 const numbers = generateNumbers(maxRandomNumber, roundOfGames);
 const question = numbers;
