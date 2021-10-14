@@ -1,4 +1,4 @@
 #!/usr/bin/env node
-import getUserAnswerBrainProgression from '../src/getUserAnswerBrainProgression.js';
+import brainProgressionGame from '../src/brainProgressionGame.js';
 
-getUserAnswerBrainProgression('What number is missing in the progression?');
+brainProgressionGame();
