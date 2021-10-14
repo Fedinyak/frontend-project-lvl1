@@ -1,4 +1,4 @@
 #!/usr/bin/env node
-import getUserAnswerBrainPrime from '../src/getUserAnswerBrainPrime.js';
+import brainPrimeGame from '../src/brainPrimeGame.js';
 
-getUserAnswerBrainPrime('Answer "yes" if given number is prime. Otherwise answer "no".');
+brainPrimeGame();
