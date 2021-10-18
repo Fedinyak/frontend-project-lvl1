@@ -1,26 +1,38 @@
-import generateNumbers from '../generateNumbers.js';
+import getRandomNumber from '../getRandomNumber.js';
 import gameEngine from '../index.js';
 
 const rules = 'Answer "yes" if the number is even, otherwise answer "no".';
-const roundOfGames = 3;
 const maxRandomNumber = 100;
 
-const numbers = generateNumbers(maxRandomNumber, roundOfGames);
-const question = numbers;
+const generateNumbers = (num) => {
+  const numbers = [];
+  for (let i = 0; i < 3; i += 1) {
+    numbers.push(getRandomNumber(num));
+  }
+  return numbers;
+};
 
-const isNumberEven = (num, rounds) => {
+const isNumberEven = (num) => {
   const result = [];
-  for (let i = 0; i < rounds; i += 1) {
-    if (num[i] % 2 === 0) {
-      result.push('yes');
-    }
-    result.push('no');
+  result.push(num);
+  if (num % 2 === 0) {
+    result.push('yes');
+  }
+  result.push('no');
+  return result;
+};
+
+const isNumberEvenArr = (num) => {
+  const result = [];
+  for (let i = 0; i < 3; i += 1) {
+    result.push(isNumberEven(num[i]));
   }
   return result;
 };
 
-const expectedAnswer = isNumberEven(numbers, roundOfGames);
+const generateRandomNumbers = generateNumbers(maxRandomNumber);
+const question = isNumberEvenArr(generateRandomNumbers);
 
-const brainEvenGame = () => gameEngine(rules, question, expectedAnswer, roundOfGames);
+const brainEvenGame = () => gameEngine(rules, question);
 
 export default brainEvenGame;
