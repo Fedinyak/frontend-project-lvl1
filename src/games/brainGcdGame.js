@@ -1,5 +1,5 @@
-import getRandomNumber from './getRandomNumber.js';
-import gameEngine from './index.js';
+import getRandomNumber from '../getRandomNumber.js';
+import gameEngine from '../index.js';
 
 const rules = 'Find the greatest common divisor of given numbers.';
 const maxRandomNumber = 100;

@@ -1,5 +1,5 @@
-import generateNumbers from './generateNumbers.js';
-import gameEngine from './index.js';
+import generateNumbers from '../generateNumbers.js';
+import gameEngine from '../index.js';
 
 const rules = 'Answer "yes" if the number is even, otherwise answer "no".';
 const roundOfGames = 3;

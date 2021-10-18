@@ -1,5 +1,5 @@
-import generateNumbers from './generateNumbers.js';
-import gameEngine from './index.js';
+import generateNumbers from '../generateNumbers.js';
+import gameEngine from '../index.js';
 
 const rules = 'What is the result of the expression?';
 const maxRandomNumber = 100;

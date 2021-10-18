@@ -1,6 +1,6 @@
-import getRandomNumber from './getRandomNumber.js';
-import generateNumbers from './generateNumbers.js';
-import gameEngine from './index.js';
+import getRandomNumber from '../getRandomNumber.js';
+import generateNumbers from '../generateNumbers.js';
+import gameEngine from '../index.js';
 
 const rules = 'What number is missing in the progression?';
 const roundOfGames = 3;
