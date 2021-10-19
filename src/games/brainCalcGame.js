@@ -5,44 +5,33 @@ const rules = 'What is the result of the expression?';
 const maxRandomNumber = 100;
 const maxRandomOperation = 4;
 
-const generateRandomNumbers = (num, operation) => {
+const getQuestionAndCalc = (num, operations) => {
+  const firstNum = getRandomNumber(num);
+  const secondNum = getRandomNumber(num);
+  const operation = getRandomNumber(operations);
   const result = [];
-  for (let i = 0; i < 3; i += 1) {
-    const roundNumbers = [];
-    roundNumbers.push(getRandomNumber(num));
-    roundNumbers.push(getRandomNumber(num));
-    roundNumbers.push(getRandomNumber(operation));
-    result.push(roundNumbers);
-  }
-  return result;
-};
-
-const getQuestionAndCalc = (num) => {
-  const result = [];
-  const operation = num[2];
   if (operation === 1) {
-    result.push(`${num[0]} + ${num[1]}`);
-    result.push(num[0] + num[1]);
+    result.push(`${firstNum} + ${secondNum}`);
+    result.push(firstNum + secondNum);
   } else if (operation === 2) {
-    result.push(`${num[0]} - ${num[1]}`);
-    result.push(num[0] - num[1]);
+    result.push(`${firstNum} - ${secondNum}`);
+    result.push(firstNum - secondNum);
   } else if (operation === 3) {
-    result.push(`${num[0]} * ${num[1]}`);
-    result.push(num[0] * num[1]);
+    result.push(`${firstNum} * ${secondNum}`);
+    result.push(firstNum * secondNum);
   }
   return result;
 };
 
-const getQuestionAndCalcArr = (num) => {
+const getQuestionAndCalcArr = (num, operations) => {
   const result = [];
   for (let i = 0; i < 3; i += 1) {
-    result.push(getQuestionAndCalc(num[i]));
+    result.push(getQuestionAndCalc(num, operations));
   }
   return result;
 };
 
-const randomNumbers = generateRandomNumbers(maxRandomNumber, maxRandomOperation);
-const question = getQuestionAndCalcArr(randomNumbers);
+const question = getQuestionAndCalcArr(maxRandomNumber, maxRandomOperation);
 
 const brainCalcGame = () => gameEngine(rules, question);
 
