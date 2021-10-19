@@ -4,18 +4,11 @@ import gameEngine from '../index.js';
 const rules = 'Answer "yes" if the number is even, otherwise answer "no".';
 const maxRandomNumber = 100;
 
-const generateNumbers = (num) => {
-  const numbers = [];
-  for (let i = 0; i < 3; i += 1) {
-    numbers.push(getRandomNumber(num));
-  }
-  return numbers;
-};
-
 const isNumberEven = (num) => {
+  const number = getRandomNumber(num);
   const result = [];
-  result.push(num);
-  if (num % 2 === 0) {
+  result.push(number);
+  if (number % 2 === 0) {
     result.push('yes');
   }
   result.push('no');
@@ -25,13 +18,12 @@ const isNumberEven = (num) => {
 const isNumberEvenArr = (num) => {
   const result = [];
   for (let i = 0; i < 3; i += 1) {
-    result.push(isNumberEven(num[i]));
+    result.push(isNumberEven(num));
   }
   return result;
 };
 
-const generateRandomNumbers = generateNumbers(maxRandomNumber);
-const question = isNumberEvenArr(generateRandomNumbers);
+const question = isNumberEvenArr(maxRandomNumber);
 
 const brainEvenGame = () => gameEngine(rules, question);
 
