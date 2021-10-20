@@ -13,11 +13,12 @@ const gameEngine = (rules, question) => {
     if (question[i][1].toString() === userAnswer) {
       console.log('Correct!');
     } else {
-      return console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${question[i][1]}'.\nLet's try again, ${userName}!`);
+      console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${question[i][1]}'.\nLet's try again, ${userName}!`);
+      return;
     }
   }
 
-  return console.log(`Congratulations, ${userName}!`);
+  console.log(`Congratulations, ${userName}!`);
 };
 
 export default gameEngine;
