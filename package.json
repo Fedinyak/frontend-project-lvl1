@@ -1,7 +1,7 @@
 {
   "name": "@hexlet/code",
   "version": "1.0.0",
-  "description": "[![Actions Status](https://github.com/Fedinyak/frontend-project-lvl1/workflows/hexlet-check/badge.svg)](https://github.com/Fedinyak/frontend-project-lvl1/actions)",
+  "description": "Brain games",
   "main": "index.js",
   "type": "module",
   "scripts": {
