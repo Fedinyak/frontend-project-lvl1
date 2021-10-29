@@ -2,37 +2,62 @@ import getRandomNumber from '../getRandomNumber.js';
 import gameEngine from '../index.js';
 
 const rules = 'What is the result of the expression?';
-const maxRandomNumber = 100;
-const maxRandomOperation = 4;
+const num = 100;
+const operations = 4;
+const min = 1;
 
-const getQuestionAndCalc = (num, operations) => {
-  const firstNum = getRandomNumber(num);
-  const secondNum = getRandomNumber(num);
-  const operation = getRandomNumber(operations);
-  const result = [];
-  if (operation === 1) {
-    result.push(`${firstNum} + ${secondNum}`);
-    result.push(firstNum + secondNum);
-  } else if (operation === 2) {
-    result.push(`${firstNum} - ${secondNum}`);
-    result.push(firstNum - secondNum);
-  } else if (operation === 3) {
-    result.push(`${firstNum} * ${secondNum}`);
-    result.push(firstNum * secondNum);
+const getQuestion = (firstNum, secondNum, operation) => {
+  let result;
+  switch (operation) {
+    case 1:
+      result = `${firstNum} + ${secondNum}`;
+      break;
+
+    case 2:
+      result = `${firstNum} - ${secondNum}`;
+      break;
+
+    default:
+      result = `${firstNum} * ${secondNum}`;
+      break;
+  }
+
+  return result;
+};
+
+const getCalc = (firstNum, secondNum, operation) => {
+  let result;
+  switch (operation) {
+    case 1:
+      result = firstNum + secondNum;
+      break;
+
+    case 2:
+      result = firstNum - secondNum;
+      break;
+
+    default:
+      result = firstNum * secondNum;
+      break;
   }
   return result;
 };
 
-const getQuestionAndCalcArr = (num, operations) => {
+const getQuestionsAndCalcs = () => {
   const result = [];
   for (let i = 0; i < 3; i += 1) {
-    result.push(getQuestionAndCalc(num, operations));
+    const roundResult = [];
+    const firstNum = getRandomNumber(min, num);
+    const secondNum = getRandomNumber(min, num);
+    const operation = getRandomNumber(min, operations);
+    roundResult.push(getQuestion(firstNum, secondNum, operation));
+    roundResult.push(getCalc(firstNum, secondNum, operation));
+    result.push(roundResult);
   }
   return result;
 };
 
-const question = getQuestionAndCalcArr(maxRandomNumber, maxRandomOperation);
-
-const brainCalcGame = () => gameEngine(rules, question);
+const questionAndCalc = getQuestionsAndCalcs();
+const brainCalcGame = () => gameEngine(rules, questionAndCalc);
 
 export default brainCalcGame;
