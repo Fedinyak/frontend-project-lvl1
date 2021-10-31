@@ -3,7 +3,7 @@ import gameEngine from '../index.js';
 
 const rules = 'Answer "yes" if the number is even, otherwise answer "no".';
 const maxRandomNumber = 100;
-const min = 1;
+const minRandomNumber = 1;
 
 const isNumberEven = (number) => {
   if (number % 2 === 0) {
@@ -16,7 +16,7 @@ const getQuestionsAndCalcs = () => {
   const result = [];
   for (let i = 0; i < 3; i += 1) {
     const roundResult = [];
-    const number = getRandomNumber(min, maxRandomNumber);
+    const number = getRandomNumber(minRandomNumber, maxRandomNumber);
     roundResult.push(number);
     roundResult.push(isNumberEven(number));
     result.push(roundResult);
