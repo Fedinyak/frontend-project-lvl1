@@ -3,36 +3,38 @@ import gameEngine from '../index.js';
 
 const rules = 'Find the greatest common divisor of given numbers.';
 const maxRandomNumber = 100;
+const minRandomNumber = 1;
 
-const getGreatestCommonDivisor = (num) => {
-  const firstNum = getRandomNumber(num);
-  const secondNum = getRandomNumber(num);
-  const result = [];
+const getQuestion = (firstNum, secondNum) => `${firstNum} ${secondNum}`;
+
+const getGreatestCommonDivisor = (firstNum, secondNum) => {
   let divisor = firstNum;
-
   if (firstNum > secondNum) {
     divisor = secondNum;
   }
 
   for (let j = divisor; j > 0; j -= 1) {
     if (firstNum % j === 0 && secondNum % j === 0) {
-      result.push(`${firstNum} ${secondNum}`);
-      result.push(j);
+      return j;
     }
   }
-
-  return result;
+  return divisor;
 };
 
-const getGreatestCommonDivisorArr = (num) => {
+const getGreatestCommonDivisorArr = () => {
   const result = [];
   for (let i = 0; i < 3; i += 1) {
-    result.push(getGreatestCommonDivisor(num));
+    const roundResult = [];
+    const firstNum = getRandomNumber(minRandomNumber, maxRandomNumber);
+    const secondNum = getRandomNumber(minRandomNumber, maxRandomNumber);
+    roundResult.push(getQuestion(firstNum, secondNum));
+    roundResult.push(getGreatestCommonDivisor(firstNum, secondNum));
+
+    result.push(roundResult);
   }
   return result;
 };
 
-const question = getGreatestCommonDivisorArr(maxRandomNumber);
-const brainGcdGame = () => gameEngine(rules, question);
-
+const questionAndDivisor = getGreatestCommonDivisorArr(maxRandomNumber);
+const brainGcdGame = () => gameEngine(rules, questionAndDivisor);
 export default brainGcdGame;
