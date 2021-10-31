@@ -2,7 +2,7 @@ import getRandomNumber from '../getRandomNumber.js';
 import gameEngine from '../index.js';
 
 const rules = 'What is the result of the expression?';
-const num = 100;
+const maxRandomNumber = 100;
 const operations = 4;
 const min = 1;
 
@@ -47,8 +47,8 @@ const getQuestionsAndCalcs = () => {
   const result = [];
   for (let i = 0; i < 3; i += 1) {
     const roundResult = [];
-    const firstNum = getRandomNumber(min, num);
-    const secondNum = getRandomNumber(min, num);
+    const firstNum = getRandomNumber(min, maxRandomNumber);
+    const secondNum = getRandomNumber(min, maxRandomNumber);
     const operation = getRandomNumber(min, operations);
     roundResult.push(getQuestion(firstNum, secondNum, operation));
     roundResult.push(getCalc(firstNum, secondNum, operation));
