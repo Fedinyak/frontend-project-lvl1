@@ -3,28 +3,29 @@ import gameEngine from '../index.js';
 
 const rules = 'Answer "yes" if the number is even, otherwise answer "no".';
 const maxRandomNumber = 100;
+const min = 1;
 
-const isNumberEven = (num) => {
-  const number = getRandomNumber(num);
-  const result = [];
-  result.push(number);
+const isNumberEven = (number) => {
   if (number % 2 === 0) {
-    result.push('yes');
+    return 'yes';
   }
-  result.push('no');
-  return result;
+  return 'no';
 };
 
-const isNumberEvenArr = (num) => {
+const getQuestionsAndCalcs = () => {
   const result = [];
   for (let i = 0; i < 3; i += 1) {
-    result.push(isNumberEven(num));
+    const roundResult = [];
+    const number = getRandomNumber(min, maxRandomNumber);
+    roundResult.push(number);
+    roundResult.push(isNumberEven(number));
+    result.push(roundResult);
   }
   return result;
 };
 
-const question = isNumberEvenArr(maxRandomNumber);
+const questionAndCalc = getQuestionsAndCalcs();
 
-const brainEvenGame = () => gameEngine(rules, question);
+const brainEvenGame = () => gameEngine(rules, questionAndCalc);
 
 export default brainEvenGame;
