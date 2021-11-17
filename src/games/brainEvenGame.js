@@ -5,27 +5,19 @@ const rules = 'Answer "yes" if the number is even, otherwise answer "no".';
 const maxRandomNumber = 100;
 const minRandomNumber = 1;
 
-const isNumberEven = (number) => {
-  if (number % 2 === 0) {
-    return 'yes';
-  }
-  return 'no';
-};
+const isEven = (number) => number % 2 === 0;
 
 const getQuestionsAndCalcs = () => {
   const result = [];
   for (let i = 0; i < 3; i += 1) {
-    const roundResult = [];
     const number = getRandomNumber(minRandomNumber, maxRandomNumber);
-    roundResult.push(number);
-    roundResult.push(isNumberEven(number));
+    const expectedAnswer = isEven(number) ? 'yes' : 'no';
+    const roundResult = [number, expectedAnswer];
     result.push(roundResult);
   }
   return result;
 };
 
-const questionAndCalc = getQuestionsAndCalcs();
-
-const brainEvenGame = () => gameEngine(rules, questionAndCalc);
+const brainEvenGame = () => gameEngine(rules, getQuestionsAndCalcs());
 
 export default brainEvenGame;

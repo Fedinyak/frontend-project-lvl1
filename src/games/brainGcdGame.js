@@ -8,20 +8,13 @@ const minRandomNumber = 1;
 const getQuestion = (firstNum, secondNum) => `${firstNum} ${secondNum}`;
 
 const getGreatestCommonDivisor = (firstNum, secondNum) => {
-  let divisor = firstNum;
-  if (firstNum > secondNum) {
-    divisor = secondNum;
+  if (!secondNum) {
+    return firstNum;
   }
-
-  for (let j = divisor; j > 0; j -= 1) {
-    if (firstNum % j === 0 && secondNum % j === 0) {
-      return j;
-    }
-  }
-  return divisor;
+  return getGreatestCommonDivisor(secondNum, firstNum % secondNum);
 };
 
-const getGreatestCommonDivisorArr = () => {
+const getQuestionsAndCommonDivisor = () => {
   const result = [];
   for (let i = 0; i < 3; i += 1) {
     const roundResult = [];
@@ -35,6 +28,5 @@ const getGreatestCommonDivisorArr = () => {
   return result;
 };
 
-const questionAndDivisor = getGreatestCommonDivisorArr(maxRandomNumber);
-const brainGcdGame = () => gameEngine(rules, questionAndDivisor);
+const brainGcdGame = () => gameEngine(rules, getQuestionsAndCommonDivisor(maxRandomNumber));
 export default brainGcdGame;

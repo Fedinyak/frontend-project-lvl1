@@ -30,7 +30,6 @@ const getQuestionAndExpectedAnswer = () => {
   return result;
 };
 
-const questionAndExpectedAnswer = getQuestionAndExpectedAnswer();
-const brainPrimeGame = () => gameEngine(rules, questionAndExpectedAnswer);
+const brainPrimeGame = () => gameEngine(rules, getQuestionAndExpectedAnswer());
 
 export default brainPrimeGame;

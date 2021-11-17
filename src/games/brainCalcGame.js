@@ -6,33 +6,38 @@ const maxRandomNumber = 100;
 const operations = 4;
 const minRandomNumber = 1;
 
-const getQuestion = (firstNum, secondNum, operation) => {
+const getSign = () => {
+  const num = getRandomNumber(minRandomNumber, operations);
   let result;
-  switch (operation) {
+  switch (num) {
     case 1:
-      result = `${firstNum} + ${secondNum}`;
+      result = '+';
       break;
 
     case 2:
-      result = `${firstNum} - ${secondNum}`;
+      result = '-';
       break;
 
     default:
-      result = `${firstNum} * ${secondNum}`;
+      result = '*';
       break;
   }
-
   return result;
 };
 
-const getCalc = (firstNum, secondNum, operation) => {
+const getQuestion = (firstNum, secondNum, sign) => {
+  const result = `${firstNum} ${sign} ${secondNum}`;
+  return result;
+};
+
+const getCalc = (firstNum, secondNum, sign) => {
   let result;
-  switch (operation) {
-    case 1:
+  switch (sign) {
+    case '+':
       result = firstNum + secondNum;
       break;
 
-    case 2:
+    case '-':
       result = firstNum - secondNum;
       break;
 
@@ -49,15 +54,14 @@ const getQuestionsAndCalcs = () => {
     const roundResult = [];
     const firstNum = getRandomNumber(minRandomNumber, maxRandomNumber);
     const secondNum = getRandomNumber(minRandomNumber, maxRandomNumber);
-    const operation = getRandomNumber(minRandomNumber, operations);
-    roundResult.push(getQuestion(firstNum, secondNum, operation));
-    roundResult.push(getCalc(firstNum, secondNum, operation));
+    const sign = getSign();
+    roundResult.push(getQuestion(firstNum, secondNum, sign));
+    roundResult.push(getCalc(firstNum, secondNum, sign));
     result.push(roundResult);
   }
   return result;
 };
 
-const questionAndCalc = getQuestionsAndCalcs();
-const brainCalcGame = () => gameEngine(rules, questionAndCalc);
+const brainCalcGame = () => gameEngine(rules, getQuestionsAndCalcs());
 
 export default brainCalcGame;

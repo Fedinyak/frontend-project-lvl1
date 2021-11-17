@@ -20,34 +20,27 @@ const getProgression = (startNum, gap, lengthProg) => {
 
 const getQuestion = (startNum, gap, lengthProg, hiddenNumber) => {
   const progression = getProgression(startNum, gap, lengthProg);
+  const answer = progression[hiddenNumber];
   const question = '..';
   progression[hiddenNumber] = question;
-  return progression.join(' ');
-};
-
-const getAnswer = (startNum, gap, lengthProg, hiddenNumber) => {
-  const progression = getProgression(startNum, gap, lengthProg);
-  const result = progression[hiddenNumber];
+  const result = [];
+  result.push(progression.join(' '));
+  result.push(answer);
   return result;
 };
 
 const getQuestionAndAnswer = () => {
   const result = [];
   for (let i = 0; i < 3; i += 1) {
-    const roundResult = [];
     const startNumber = getRandomNumber(minRandomNumber, maxStartNumber);
     const gapProgression = getRandomNumber(minRandomNumber, maxGapProgression);
     const lengthProgression = getRandomNumber(minLengthProgression, maxLengthProgression);
     const hiddenNumber = getRandomNumber(minRandomNumber, lengthProgression);
-
-    roundResult.push(getQuestion(startNumber, gapProgression, lengthProgression, hiddenNumber));
-    roundResult.push(getAnswer(startNumber, gapProgression, lengthProgression, hiddenNumber));
-    result.push(roundResult);
+    result.push(getQuestion(startNumber, gapProgression, lengthProgression, hiddenNumber));
   }
   return result;
 };
 
-const question = getQuestionAndAnswer();
-const brainProgressionGame = () => gameEngine(rules, question);
+const brainProgressionGame = () => gameEngine(rules, getQuestionAndAnswer());
 
 export default brainProgressionGame;

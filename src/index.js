@@ -7,13 +7,14 @@ const gameEngine = (rules, question) => {
   console.log(rules);
 
   for (let i = 0; i < 3; i += 1) {
-    console.log(`Question: ${question[i][0]}`);
+    const [data, answer] = question[i];
+    console.log(`Question: ${data}`);
     const userAnswer = readlineSync.question('Your answer: ');
 
-    if (question[i][1].toString() === userAnswer) {
+    if (answer.toString() === userAnswer) {
       console.log('Correct!');
     } else {
-      console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${question[i][1]}'.\nLet's try again, ${userName}!`);
+      console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${answer}'.\nLet's try again, ${userName}!`);
       return;
     }
   }
