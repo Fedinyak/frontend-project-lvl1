@@ -2,20 +2,14 @@ import getRandomNumber from '../getRandomNumber.js';
 import gameEngine from '../index.js';
 
 const rules = 'What is the result of the expression?';
+const gameRounds = 3;
 const maxRandomNumber = 100;
 const minRandomNumber = 1;
 const minRandomSignNumber = 0;
 const maxRandomSignNumber = 2;
-
-const getQuestion = (firstNum, secondNum, signIndex) => {
-  const signs = '+-*';
-  const sign = signs[signIndex];
-  const result = `${firstNum} ${sign} ${secondNum}`;
-  return result;
-};
+const signs = '+-*';
 
 const getCalc = (firstNum, secondNum, signIndex) => {
-  const signs = '+-*';
   const sign = signs[signIndex];
   let result;
   switch (sign) {
@@ -27,8 +21,12 @@ const getCalc = (firstNum, secondNum, signIndex) => {
       result = firstNum - secondNum;
       break;
 
-    default:
+    case '*':
       result = firstNum * secondNum;
+      break;
+
+    default:
+      result = null;
       break;
   }
   return result;
@@ -36,13 +34,11 @@ const getCalc = (firstNum, secondNum, signIndex) => {
 
 const getQuestionsAndCalcs = () => {
   const result = [];
-  for (let i = 0; i < 3; i += 1) {
-    const roundResult = [];
+  for (let i = 0; i < gameRounds; i += 1) {
     const firstNum = getRandomNumber(minRandomNumber, maxRandomNumber);
     const secondNum = getRandomNumber(minRandomNumber, maxRandomNumber);
     const sign = getRandomNumber(minRandomSignNumber, maxRandomSignNumber);
-    roundResult.push(getQuestion(firstNum, secondNum, sign));
-    roundResult.push(getCalc(firstNum, secondNum, sign));
+    const roundResult = [`${firstNum} ${signs[sign]} ${secondNum}`, getCalc(firstNum, secondNum, sign)];
     result.push(roundResult);
   }
   return result;

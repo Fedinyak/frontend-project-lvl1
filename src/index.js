@@ -6,8 +6,8 @@ const gameEngine = (rules, question) => {
   console.log(`Hello, ${userName}!`);
   console.log(rules);
 
-  for (let i = 0; i < 3; i += 1) {
-    const [data, answer] = question[i];
+  // eslint-disable-next-line no-restricted-syntax
+  for (const [data, answer] of question) {
     console.log(`Question: ${data}`);
     const userAnswer = readlineSync.question('Your answer: ');
 
